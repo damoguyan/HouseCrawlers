@@ -83,3 +83,8 @@ NEWSPIDER_MODULE = 'house_crawlers.spiders'
 #HTTPCACHE_DIR='httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES=[]
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
+# 从settings_local中重载配置
+try:
+    from settings_local import *
+except ImportError:
+    pass
