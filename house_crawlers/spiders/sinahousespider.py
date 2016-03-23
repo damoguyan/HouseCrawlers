@@ -19,12 +19,12 @@ class SinahouseSpider(CrawlSpider):
     start_urls = ['http://data.house.sina.com.cn/sh/search/?bcity=sh&keyword=',]
     costom_settings = {}
     rules = [
-             #具体楼盘链接提取
-             Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+\d+\?\w+=\w+bt\d*")), callback='parse_item'),
+             #其他城市链接跟进
+#             Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+/search/.*")), follow=True),
              #当前城市下,楼盘下一页链接跟进
             Rule(LinkExtractor(allow=("/\w+/search-\d+.*")), follow=True),
-            #其他城市链接跟进
-            Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+/search/.*")), follow=True),
+             #具体楼盘链接提取
+            Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+\d+\?\w+=\w+bt\d*")), callback='parse_item'),
              ]
     
     def parse_item(self,response):
