@@ -30,10 +30,10 @@ class AnjukeSpider(CrawlSpider):
         item = AnjukeItem()
         item['house_name'] = response.xpath('//*[@id="j-triggerlayer"]/text()').extract_first().strip()
         item['house_index_url'] = response.url
-        item['house_price'] = response.xpath('//*[@id="container"]/div[1]/div[2]/div[1]/dl/dd[1]/p/text()[1]').extract_first(default='').strip()+\
-            response.xpath('//*[@id="container"]/div[1]/div[2]/div[1]/dl/dd[1]/p/em/text()').extract_first(default='').strip() +\
-            response.xpath('//*[@id="container"]/div[1]/div[2]/div[1]/dl/dd[1]/p/text()[2]').extract_first(default='').strip()
-        item['house_address'] = response.xpath('//*[@id="container"]/div[1]/div[2]/div[1]/dl/dd[4]/span/text()').extract_first()
+        item['house_price'] = response.xpath('//*[@id="container"]//dd[@class="price"]/p/text()[1]').extract_first(default='').strip()+\
+            response.xpath('//*[@id="container"]//dd[@class="price"]/p/em/text()').extract_first(default='').strip() +\
+            response.xpath('//*[@id="container"]//dd[@class="price"]/p/text()[2]').extract_first(default='').strip()
+        item['house_address'] = response.xpath('//*[@id="container"]//span[@class="lpAddr-text"]/text()').extract_first()
         item['longtitude_latitude'] = response.xpath('//script').re_first('.*?lng: (\d+.\d+)') + ',' + response.xpath('//script').re_first('.*?lat: (\d+.\d+)')
         return item
         
