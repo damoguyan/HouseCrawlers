@@ -29,7 +29,7 @@ class SinahouseSpider(CrawlSpider):
 
     def parse_item(self,response):
         """
-        提取具体楼盘信息
+        具体楼盘信息
         """
         item = SinahouseItem()
         item['house_name'] = response.xpath('//div[@class="header04Left"]/h2/text()').extract_first().strip()
