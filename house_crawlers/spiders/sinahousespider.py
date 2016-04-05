@@ -9,10 +9,10 @@ Created on 2016-03-21
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from house_crawlers.items.sinahouseitem import SinahouseItem
-#dev
+#test dev
 class SinahouseSpider(CrawlSpider):
     """
-    新浪乐居楼盘爬虫
+    新浪乐居楼盘
     """
     name = 'sinahouse'
     allowed_domains = ['house.sina.com.cn',]
@@ -26,7 +26,7 @@ class SinahouseSpider(CrawlSpider):
              #具体楼盘链接提取
             Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+\d+\?\w+=\w+bt\d*")), callback='parse_item'),
              ]
-
+#here
     def parse_item(self,response):
         """
         提取具体楼盘信息
