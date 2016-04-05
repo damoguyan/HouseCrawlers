@@ -17,7 +17,7 @@ class SinahouseSpider(CrawlSpider):
     name = 'sinahouse'
     allowed_domains = ['house.sina.com.cn',]
     start_urls = ['http://data.house.sina.com.cn/sh/search/?bcity=sh&keyword=',]
-#     costom_settings = {}
+    costom_settings = {}
     rules = [
              #其他城市链接跟进
             Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+/search/.*")), follow=True),
@@ -26,7 +26,7 @@ class SinahouseSpider(CrawlSpider):
              #具体楼盘链接提取
             Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+\d+\?\w+=\w+bt\d*")), callback='parse_item'),
              ]
-
+#here
     def parse_item(self,response):
         """
         具体楼盘信息
