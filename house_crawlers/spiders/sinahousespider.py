@@ -24,7 +24,7 @@ class SinahouseSpider(CrawlSpider):
              #当前城市下,楼盘下一页链接跟进
             #Rule(LinkExtractor(allow=("/\w+/search-\d+.*")), follow=True),
              #具体楼盘链接提取
-            Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+\d+\?\w+=\w+bt\d*")), callback='parse_item'),#change
+            #Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+\d+\?\w+=\w+bt\d*")), callback='parse_item'),#change
              ]
     
     def parse_item(self,response):
