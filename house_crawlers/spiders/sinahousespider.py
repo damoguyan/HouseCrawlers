@@ -9,7 +9,7 @@ Created on 2016-03-21
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from house_crawlers.items.sinahouseitem import SinahouseItem
-
+#dev
 class SinahouseSpider(CrawlSpider):
     """
     新浪乐居楼盘爬虫
@@ -24,9 +24,9 @@ class SinahouseSpider(CrawlSpider):
              #当前城市下,楼盘下一页链接跟进
             Rule(LinkExtractor(allow=("/\w+/search-\d+.*")), follow=True),
              #具体楼盘链接提取
-            Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+\d+\?\w+=\w+bt\d*")), callback='parse_item'),#change
+            Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+\d+\?\w+=\w+bt\d*")), callback='parse_item'),
              ]
-    #dev
+
     def parse_item(self,response):
         """
         提取具体楼盘信息
