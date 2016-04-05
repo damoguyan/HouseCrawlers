@@ -26,7 +26,7 @@ class SinahouseSpider(CrawlSpider):
              #具体楼盘链接提取
             Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+\d+\?\w+=\w+bt\d*")), callback='parse_item'),
              ]
-    #dev
+
     def parse_item(self,response):
         """
         提取具体楼盘信息
