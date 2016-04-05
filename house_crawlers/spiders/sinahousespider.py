@@ -20,7 +20,7 @@ class SinahouseSpider(CrawlSpider):
     costom_settings = {}
     rules = [
              #其他城市链接跟进
-            Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+/search/.*")), follow=True),
+            #Rule(LinkExtractor(allow=("http://data.house.sina.com.cn/\w+/search/.*")), follow=True),
              #当前城市下,楼盘下一页链接跟进
             Rule(LinkExtractor(allow=("/\w+/search-\d+.*")), follow=True),
              #具体楼盘链接提取
